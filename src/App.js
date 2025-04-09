@@ -23,28 +23,6 @@ const NavbarContainer = styled.div`
   }
 `;
 
-const NavbarTitle = styled.h3`
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-`;
-
-const CreateJobButton = styled.button`
-  padding: 10px 18px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-
 const ContentContainer = styled.div`
   margin-top: 20px;
   padding: 20px 40px;
@@ -113,10 +91,6 @@ const JobDetail = styled.p`
   }
 `;
 
-const JobDescriptionDetail = styled(JobDetail)`
-  white-space: pre-wrap;
-  word-wrap: break-word;
-`;
 
 const NoJobsMessage = styled.p`
   color: #777;
@@ -231,18 +205,6 @@ function App() {
     } catch (err) {
       console.error('Error posting job to backend:', err);
       setError(err.message || 'An unexpected error occurred while posting the job to the backend.');
-    }
-  };
-
-  const formatDate = (dateString) => {
-    if (!dateString) return 'N/A';
-    try {
-      const date = new Date(dateString);
-      const utcDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-      return utcDate.toLocaleDateString('en-CA');
-    } catch (e) {
-      console.error("Error formatting date:", e);
-      return dateString;
     }
   };
 
